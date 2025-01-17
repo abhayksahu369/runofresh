@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { MapPin, Plus } from 'lucide-react';
 
 const addresses = [
@@ -40,7 +40,8 @@ export default function Address() {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      {/* Grid Layout for Addresses */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {addresses.map((address) => (
           <div
             key={address.id}

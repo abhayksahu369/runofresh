@@ -9,7 +9,10 @@ import Profile from './pages/Profile';
 import Wishlist from './pages/Wishlist';
 import Orders from './pages/Orders';
 import Address from './pages/Address';
+import Runocoin from './pages/Runocoin';
 import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart';
+import Payment from './components/Payment';
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
             <Route path="/Wishlist" element={<Wishlist />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Manage Address" element={<Address />} />
+            <Route path="/runocoin" element={<Runocoin />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
           <Footer />
         </div>

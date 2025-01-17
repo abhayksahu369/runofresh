@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Package } from 'lucide-react';
 
 const orders = [
@@ -37,9 +37,10 @@ export default function Orders() {
       <div className="space-y-6">
         {orders.map((order) => (
           <div key={order.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+            {/* Order Summary Section */}
             <div className="border-b border-gray-200 p-4">
-              <div className="flex justify-between items-center">
-                <div>
+              <div className="flex justify-between items-start sm:items-center sm:flex-row flex-col">
+                <div className="mb-4 sm:mb-0">
                   <p className="text-sm text-gray-600">Order #{order.id}</p>
                   <p className="text-sm text-gray-600">Placed on {order.date}</p>
                 </div>
@@ -54,6 +55,7 @@ export default function Orders() {
               </div>
             </div>
 
+            {/* Order Items List */}
             <div className="p-4">
               {order.items.map((item) => (
                 <div key={item.id} className="flex items-center py-4 border-b last:border-0">
@@ -71,6 +73,7 @@ export default function Orders() {
               ))}
             </div>
 
+            {/* View Order Button */}
             <div className="bg-gray-50 px-4 py-3">
               <button className="text-orange-600 hover:text-orange-700 text-sm font-medium">
                 View Order Details

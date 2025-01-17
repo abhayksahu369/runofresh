@@ -1,59 +1,77 @@
-import React from 'react';
+import { useState, useEffect } from "react";
+import { FaFish, FaLeaf, FaPepperHot, FaAppleAlt, FaCarrot } from "react-icons/fa";
 
 export default function Hero() {
+  const images = [
+    "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000",
+    "https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&q=80&w=1000",
+    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=1000A",
+    "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&q=80&w=1000",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
-    <>
-      <div className="relative h-[600px]  bg-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex items-center h-full">
-            <div className="w-1/2 pr-8">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                Farm Fresh Products Delivered to Your Door
-              </h1>
-              <p className="text-lg text-gray-600 mb-6">
-                From farm-fresh meats to local spices, get the finest quality products sourced directly from verified farmers and suppliers.
-              </p>
-              <button className="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition">
-                Shop Now
-              </button>
+    <div className="relative h-[600px] bg-orange-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex flex-col lg:flex-row items-center h-full">
+          <div className="lg:w-1/2 pr-8 mb-8 lg:mb-0">
+            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Farm Fresh Products Delivered to Your Door
+            </h1>
+            <p className="text-lg text-gray-600 mb-6">
+              From farm-fresh meats to local spices, get the finest quality products sourced directly from verified farmers and suppliers.
+            </p>
+            <div className="flex gap-4">
+              <div className="flex flex-col items-center">
+                <div className="bg-orange-100 p-3 rounded-full shadow">
+                  <FaPepperHot className="text-orange-600 text-2xl" />
+                </div>
+                <span className="mt-2 text-sm text-gray-700">Spices</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="bg-orange-100 p-3 rounded-full shadow">
+                  <FaFish className="text-orange-600 text-2xl" />
+                </div>
+                <span className="mt-2 text-sm text-gray-700">Meat</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="bg-orange-100 p-3 rounded-full shadow">
+                  <FaLeaf className="text-orange-600 text-2xl" />
+                </div>
+                <span className="mt-2 text-sm text-gray-700">Vegetables</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="bg-orange-100 p-3 rounded-full shadow">
+                  <FaAppleAlt className="text-orange-600 text-2xl" />
+                </div>
+                <span className="mt-2 text-sm text-gray-700">Fruits</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="bg-orange-100 p-3 rounded-full shadow">
+                  <FaCarrot className="text-orange-600 text-2xl" />
+                </div>
+                <span className="mt-2 text-sm text-gray-700">Organic</span>
+              </div>
             </div>
-            <div className="w-1/2">
-              <img
-                src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000"
-                alt="Fresh farm products"
-                className="rounded-lg shadow-xl"
-              />
-            </div>
+          </div>
+          <div className="lg:w-1/2 relative overflow-hidden rounded-lg shadow-xl">
+            <img
+              src={images[currentIndex]}
+              alt="Fresh farm products"
+              className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
+            />
           </div>
         </div>
       </div>
-      <section className="max-w-6xl mx-auto mt-16 mb-16">
-        <h2 className="text-2xl font-bold mb-8">Popular Categories</h2>
-        <div className="grid grid-cols-3 gap-8">
-          <div className="bg-white p-4 rounded-lg shadow flex flex-col h-full">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&q=80&w=1000" alt="Fresh Chicken" className="w-full h-48 object-cover rounded mb-4" />
-            <h3 className="text-xl font-bold mb-2">Fresh Chicken</h3>
-            <p className="text-gray-600 mb-4 flex-grow">Farm-fresh chicken sourced from verified suppliers</p>
-            <button className="bg-orange-600 text-white px-4 py-2 rounded w-full mt-auto">Browse</button>
-          </div>
-
-          <div className="bg-white p-4 rounded-lg shadow flex flex-col h-full">
-            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=1000A" alt="Country Spices" className="w-full h-48 object-cover rounded mb-4" />
-            <h3 className="text-xl font-bold mb-2">Country Spices</h3>
-            <p className="text-gray-600 mb-4 flex-grow">Authentic local spices for your kitchen</p>
-            <button className="bg-orange-600 text-white px-4 py-2 rounded w-full mt-auto">Browse</button>
-          </div>
-
-          <div className="bg-white p-4 rounded-lg shadow flex flex-col h-full">
-            <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&q=80&w=1000" alt="Local Fish" className="w-full h-48 object-cover rounded mb-4" />
-            <h3 className="text-xl font-bold mb-2">Local Fish</h3>
-            <p className="text-gray-600 mb-4 flex-grow">Fresh local fish varieties daily</p>
-            <button className="bg-orange-600 text-white px-4 py-2 rounded w-full mt-auto">Browse</button>
-          </div>
-        </div>
-      </section>
-
- 
-    </>
+    </div>
   );
 }

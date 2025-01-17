@@ -1,11 +1,11 @@
-import React from 'react';
 import { User } from 'lucide-react';
 
 export default function Profile() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="bg-white rounded-lg shadow-md p-8">
-        <div className="flex items-center space-x-4 mb-8">
+        {/* Profile Header */}
+        <div className="flex items-center space-x-4 mb-8 flex-col sm:flex-row">
           <div className="bg-orange-100 p-4 rounded-full">
             <User className="h-12 w-12 text-orange-600" />
           </div>
@@ -15,7 +15,9 @@ export default function Profile() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
+        {/* Form Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {/* Personal Information */}
           <div>
             <h2 className="text-lg font-semibold mb-4">Personal Information</h2>
             <div className="space-y-4">
@@ -46,6 +48,7 @@ export default function Profile() {
             </div>
           </div>
 
+          {/* Account Settings */}
           <div>
             <h2 className="text-lg font-semibold mb-4">Account Settings</h2>
             <div className="space-y-4">
@@ -73,6 +76,7 @@ export default function Profile() {
           </div>
         </div>
 
+        {/* Save Button */}
         <div className="mt-8 flex justify-end">
           <button className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700">
             Save Changes

@@ -1,10 +1,10 @@
-import React from 'react';
+
 
 export default function DealOfTheDay() {
   const deals = [
     {
       id: 1,
-      name: "Premium Kashmiri Saffron",
+      name: "Ginger",
       image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d",
       price: "₹999",
       originalPrice: "₹1499",
@@ -18,7 +18,7 @@ export default function DealOfTheDay() {
     },
     {
       id: 3,
-      name: "Kerala Black Pepper",
+      name: "Black Pepper",
       image: "https://www.redshipexgroup.com/wp-content/uploads/2023/09/black-milled-pepper-corns-as-background-high-quality-photo-1024x683.jpg",
       price: "₹199",
       originalPrice: "₹299",
@@ -28,8 +28,8 @@ export default function DealOfTheDay() {
   return (
     <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Deal of the Day</h2>
-        <div className="grid grid-cols-3 gap-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Deal of the Day</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {deals.map((deal) => (
             <div key={deal.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <img

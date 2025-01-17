@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Heart, ShoppingCart } from 'lucide-react';
 
 const wishlistItems = [
@@ -24,7 +24,8 @@ export default function Wishlist() {
         <h1 className="text-2xl font-bold">My Wishlist</h1>
       </div>
 
-      <div className="grid grid-cols-4 gap-6">
+      {/* Grid Layout with responsiveness */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {wishlistItems.map((item) => (
           <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative">
